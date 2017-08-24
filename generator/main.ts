@@ -36,6 +36,9 @@ async function main(idls: Array<string>) {
         context: parsedData[0]
     }));
   }
+  return 0;
 }
 
-main(process.argv.slice(2));
+main(process.argv.slice(2))
+    .then(process.exit)
+    .catch(() => process.exit(2));
