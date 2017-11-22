@@ -30,6 +30,10 @@ native layer.
 - You can just run the following command to test.
   - ```./bacardi test```
 
+## Lint
+- You can just run the following command to lint.
+  - ```./bacardi lint```
+ 
 ## Electron with Bacardi
 - If you want to run Electron with Bacardi, you can run the following commands.
   - ```./bacardi build_electron```
