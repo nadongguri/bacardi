@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [[ $# == 1 ]]; then
+if [[ "$#" == "1" ]]; then
   git pull origin pull/$1/head
 elif [[ $# == 2 ]]; then
   git fetch origin pull/$1/head:$2
