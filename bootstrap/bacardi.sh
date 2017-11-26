@@ -40,7 +40,10 @@ if [ ! -f .last_update ] || [ package.json -nt .last_update ]; then
   npm install
 fi
 
+if [ "$1" ]; then
 sub_command=$(basename $(echo $1 | sed 's/\\/\//g'))
+fi
+
 for command in $(ls $(bootstrap_command_path)); do
   if [ "$sub_command" = "$command" ]; then
     shift
