@@ -41,16 +41,15 @@ if [ ! -f .last_update ] || [ package.json -nt .last_update ]; then
 fi
 
 if [ "$1" ]; then
-sub_command=$(basename $(echo $1 | sed 's/\\/\//g'))
+  sub_command=$(basename $(echo $1 | sed 's/\\/\//g'))
+  for command in $(ls $(bootstrap_command_path)); do
+    if [ "$sub_command" = "$command" ]; then
+      shift
+      $(bootstrap_command_path)/$command $@
+      exit
+    fi
+  done
 fi
-
-for command in $(ls $(bootstrap_command_path)); do
-  if [ "$sub_command" = "$command" ]; then
-    shift
-    $(bootstrap_command_path)/$command $@
-    exit
-  fi
-done
 
 export NODE_PATH=$(bacardi_path)
 gulp $@
