@@ -14,14 +14,22 @@
  * limitations under the License.
  */
 
-import {Parser} from 'core/parser/parser';
-import * as types from 'core/types';
+import { _ArgumentInfo } from 'core/parser/argument_info';
+import { _TypeInfo } from 'core/parser/type_info';
 
-export { _DefinitionInfo as DefinitionInfo } from 'core/parser/definition_info';
-export { _DictionaryInfo as DictionaryInfo } from 'core/parser/dictionary_info';
-export { _EnumInfo as EnumInfo } from 'core/parser/enum_info';
-export { _InterfaceInfo as InterfaceInfo } from 'core/parser/interface_info';
-
-export async function parse(idlFilePaths: string[]): Promise<types.IDLTypeMap> {
-  return Parser.parse(idlFilePaths);
+/**
+ * IDL Operation Member Information
+ *
+ * @see https://github.com/w3c/webidl2.js#enum
+ */
+export interface _OperationMemberInfo {
+  readonly type: 'operation';
+  readonly getter: boolean;
+  readonly setter: boolean;
+  readonly deleter: boolean;
+  readonly static: boolean;
+  readonly stringifier: boolean;
+  readonly idlType: _TypeInfo;
+  readonly name: string;
+  readonly arguments: _ArgumentInfo[];
 }

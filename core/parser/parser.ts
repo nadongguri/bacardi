@@ -15,12 +15,14 @@
  */
 
 import file from 'core/base/file';
+import * as parserTypes from 'core/parser';
 import * as types from 'core/types';
 import * as webidl from 'webidl2';
 
 async function readAndParse(idlFilePath: string): Promise<void> {
   const idlFragment: string = await file.read(idlFilePath);
-  const idlDefinitionInfos: types.DefinitionInfo[] = webidl.parse(idlFragment);
+  const idlDefinitionInfos: parserTypes.DefinitionInfo[] =
+    webidl.parse(idlFragment);
   types.IDLTypeMap.update(idlDefinitionInfos);
 }
 

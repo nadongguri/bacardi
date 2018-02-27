@@ -1,8 +1,10 @@
 {
   "extends": "tslint-microsoft-contrib",
   "rules": {
+    "class-name": false,
     "export-name": false,
     "function-name": false,
+    "import-spacing": false,
     "indent": [true, 2],
     "interface-name": false,
     "match-default-export-name": false,

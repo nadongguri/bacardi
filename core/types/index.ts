@@ -15,5 +15,4 @@
  */
 
 export {IDLTypeMap} from 'core/types/idl_type_map';
-export {DefinitionInfo} from 'core/types/idl_types';
 export {IRDefinition} from 'core/types/ir_definition';

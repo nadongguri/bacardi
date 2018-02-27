@@ -16,7 +16,7 @@
 
 import {
     DefinitionInfo, DictionaryInfo, EnumInfo, InterfaceInfo
-  } from 'core/types/idl_types';
+} from 'core/parser';
 
 interface DefinitionInfoStore {
   [index: string]: DefinitionInfo;

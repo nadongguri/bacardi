@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-import {Parser} from 'core/parser/parser';
-import * as types from 'core/types';
+import { _DictionaryMemberInfo } from 'core/parser/dictionary_member_info';
 
-export { _DefinitionInfo as DefinitionInfo } from 'core/parser/definition_info';
-export { _DictionaryInfo as DictionaryInfo } from 'core/parser/dictionary_info';
-export { _EnumInfo as EnumInfo } from 'core/parser/enum_info';
-export { _InterfaceInfo as InterfaceInfo } from 'core/parser/interface_info';
-
-export async function parse(idlFilePaths: string[]): Promise<types.IDLTypeMap> {
-  return Parser.parse(idlFilePaths);
+/**
+ * IDL Dictionary Information
+ *
+ * @see https://github.com/w3c/webidl2.js#dictionary
+ */
+export interface _DictionaryInfo {
+  readonly type: 'dictionary';
+  readonly name: string;
+  partial: boolean;
+  members: _DictionaryMemberInfo[];
+  inheritance: string;
 }
